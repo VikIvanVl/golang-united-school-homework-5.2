@@ -15,6 +15,12 @@ type Cache struct {
 	data map[string]Data
 }
 
+func NewCache() Cache {
+	return Cache{
+		data: map[string]Data{},
+	}
+}
+
 func (cache *Cache) Get(key string) (string, bool) {
 	cache.mu.Lock()
 	defer cache.mu.Unlock()
